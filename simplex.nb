@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     34318,        730]
-NotebookOptionsPosition[     33471,        696]
-NotebookOutlinePosition[     33811,        711]
-CellTagsIndexPosition[     33768,        708]
+NotebookDataLength[     35077,        747]
+NotebookOptionsPosition[     34230,        713]
+NotebookOutlinePosition[     34570,        728]
+CellTagsIndexPosition[     34527,        725]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -240,8 +240,8 @@ Cell[BoxData[
        " ", "pivot", ",", " ", "pivotb", ",", " ", "ratio", ",", " ", "AB", 
        ",", " ", "ABI", ",", " ", "ABar", ",", " ", "bBar", ",", " ", "CBT", 
        ",", " ", "CBar", ",", " ", "hBar", ",", " ", "hOut", ",", " ", "BOut",
-        ",", " ", "BTemp", ",", " ", "bOut", ",", " ", "AOut"}], "}"}], ",", 
-     "\[IndentingNewLine]", 
+        ",", " ", "BTemp", ",", " ", "bOut", ",", " ", "AOut", ",", " ", 
+       "xOut"}], "}"}], ",", "\[IndentingNewLine]", 
      RowBox[{
       RowBox[{"CT", " ", "=", " ", 
        RowBox[{"Transpose", "[", "CV", "]"}]}], ";", "\[IndentingNewLine]", 
@@ -402,9 +402,24 @@ Cell[BoxData[
       RowBox[{"BOut", " ", "=", " ", "BTemp"}], ";", "\[IndentingNewLine]", 
       RowBox[{"bOut", " ", "=", " ", "bTemp"}], ";", "\[IndentingNewLine]", 
       RowBox[{"AOut", " ", "=", " ", "ATemp"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"ValueQ", "[", "ABI", "]"}], ",", ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"AB", " ", "=", " ", 
+          RowBox[{"ATemp", "[", 
+           RowBox[{"[", 
+            RowBox[{"All", ",", " ", "BTemp"}], "]"}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"ABI", " ", "=", " ", 
+          RowBox[{"Inverse", "[", "AB", "]"}]}], ";"}]}], 
+       "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"xOut", " ", "=", " ", 
+       RowBox[{"ABI", ".", "bTemp"}]}], ";", "\[IndentingNewLine]", 
       RowBox[{"{", 
-       RowBox[{"hOut", ",", " ", "AOut", ",", " ", "bOut", ",", " ", "BOut"}],
-        "}"}]}]}], "\[IndentingNewLine]", "]"}]}], ";"}]], "Input",
+       RowBox[{
+       "hOut", ",", " ", "AOut", ",", " ", "bOut", ",", " ", "BOut", ",", " ",
+         "xOut"}], "}"}]}]}], "\[IndentingNewLine]", "]"}]}], ";"}]], "Input",
  CellChangeTimes->{{3.685931511897665*^9, 3.685931606855122*^9}, {
    3.685932000729838*^9, 3.685932130378286*^9}, {3.685932413354204*^9, 
    3.6859324301412983`*^9}, {3.685932618131412*^9, 3.6859326920177383`*^9}, {
@@ -492,7 +507,9 @@ Cell[BoxData[
    3.690030491772238*^9, 3.690030495270504*^9}, {3.690102863807152*^9, 
    3.690102864117795*^9}, {3.690103069217224*^9, 3.6901030716575203`*^9}, {
    3.690103104177371*^9, 3.690103105015292*^9}, {3.690103135528017*^9, 
-   3.6901031357880983`*^9}, {3.6901031728856907`*^9, 3.690103225054223*^9}}],
+   3.6901031357880983`*^9}, {3.6901031728856907`*^9, 3.690103225054223*^9}, {
+   3.690103612195997*^9, 3.690103617104208*^9}, {3.690104037200424*^9, 
+   3.6901040375416603`*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -723,13 +740,13 @@ Cell[4436, 122, 959, 30, 192, "Input"],
 Cell[5398, 154, 1276, 33, 34, "Output"]
 }, Open  ]],
 Cell[6689, 190, 2496, 34, 32, "Input"],
-Cell[9188, 226, 14939, 268, 1483, "Input"],
-Cell[24130, 496, 8595, 174, 608, "Input"],
+Cell[9188, 226, 15698, 285, 1598, "Input"],
+Cell[24889, 513, 8595, 174, 608, "Input"],
 Cell[CellGroupData[{
-Cell[32750, 674, 187, 4, 34, "Input"],
+Cell[33509, 691, 187, 4, 34, "Input"],
 Cell[CellGroupData[{
-Cell[32962, 682, 242, 3, 24, "Print"],
-Cell[33207, 687, 236, 5, 38, "Print"]
+Cell[33721, 699, 242, 3, 24, "Print"],
+Cell[33966, 704, 236, 5, 38, "Print"]
 }, Open  ]]
 }, Open  ]]
 }

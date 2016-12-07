@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     35010,        710]
-NotebookOptionsPosition[     34347,        683]
-NotebookOutlinePosition[     34687,        698]
-CellTagsIndexPosition[     34644,        695]
+NotebookDataLength[     38885,        821]
+NotebookOptionsPosition[     38176,        793]
+NotebookOutlinePosition[     38516,        808]
+CellTagsIndexPosition[     38473,        805]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -128,8 +128,8 @@ Cell[BoxData[
        " ", "pivot", ",", " ", "pivotb", ",", " ", "ratio", ",", " ", "AB", 
        ",", " ", "ABI", ",", " ", "ABar", ",", " ", "bBar", ",", " ", "CBT", 
        ",", " ", "CBar", ",", " ", "hBar", ",", " ", "hOut", ",", " ", "BOut",
-        ",", " ", "BTemp", ",", " ", "bOut", ",", " ", "AOut"}], "}"}], ",", 
-     "\[IndentingNewLine]", 
+        ",", " ", "BTemp", ",", " ", "bOut", ",", " ", "AOut", ",", " ", 
+       "xOut"}], "}"}], ",", "\[IndentingNewLine]", 
      RowBox[{
       RowBox[{"CT", " ", "=", " ", 
        RowBox[{"Transpose", "[", "CV", "]"}]}], ";", "\[IndentingNewLine]", 
@@ -290,9 +290,24 @@ Cell[BoxData[
       RowBox[{"BOut", " ", "=", " ", "BTemp"}], ";", "\[IndentingNewLine]", 
       RowBox[{"bOut", " ", "=", " ", "bTemp"}], ";", "\[IndentingNewLine]", 
       RowBox[{"AOut", " ", "=", " ", "ATemp"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"ValueQ", "[", "ABI", "]"}], ",", ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"AB", " ", "=", " ", 
+          RowBox[{"ATemp", "[", 
+           RowBox[{"[", 
+            RowBox[{"All", ",", " ", "BTemp"}], "]"}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"ABI", " ", "=", " ", 
+          RowBox[{"Inverse", "[", "AB", "]"}]}], ";"}]}], 
+       "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"xOut", " ", "=", " ", 
+       RowBox[{"ABI", ".", "bOut"}]}], ";", "\[IndentingNewLine]", 
       RowBox[{"{", 
-       RowBox[{"hOut", ",", " ", "AOut", ",", " ", "bOut", ",", " ", "BOut"}],
-        "}"}]}]}], "\[IndentingNewLine]", "]"}]}], ";"}]], "Input",
+       RowBox[{
+       "hOut", ",", " ", "AOut", ",", " ", "bOut", ",", " ", "BOut", ",", " ",
+         "xOut"}], "}"}]}]}], "\[IndentingNewLine]", "]"}]}], ";"}]], "Input",
  CellChangeTimes->{{3.685931511897665*^9, 3.685931606855122*^9}, {
    3.685932000729838*^9, 3.685932130378286*^9}, {3.685932413354204*^9, 
    3.6859324301412983`*^9}, {3.685932618131412*^9, 3.6859326920177383`*^9}, {
@@ -387,7 +402,9 @@ Cell[BoxData[
    3.690100261871923*^9, 3.690100292970914*^9}, {3.690102479631959*^9, 
    3.690102486341962*^9}, {3.6901025826538553`*^9, 3.690102589615892*^9}, {
    3.6901032411094093`*^9, 3.690103264619293*^9}, {3.690103296369673*^9, 
-   3.690103296528517*^9}}],
+   3.690103296528517*^9}, {3.690103546861602*^9, 3.6901035683765306`*^9}, {
+   3.690103894651775*^9, 3.690103938232239*^9}, {3.690103969159687*^9, 
+   3.690104004424426*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -400,8 +417,8 @@ Cell[BoxData[
       RowBox[{
       "AStar", ",", " ", "CSum", ",", " ", "bSum", ",", " ", "B", ",", " ", 
        "CStar", ",", " ", "result", ",", " ", "Anew", ",", " ", "Bnew", ",", 
-       " ", "CVnew", ",", " ", "bnew", ",", " ", "hnew", ",", " ", "hFinal"}],
-       "}"}], ",", "\[IndentingNewLine]", 
+       " ", "CVnew", ",", " ", "bnew", ",", " ", "hnew", ",", " ", "final"}], 
+      "}"}], ",", "\[IndentingNewLine]", 
      RowBox[{
       RowBox[{"AStar", " ", "=", " ", 
        RowBox[{"ArrayFlatten", "[", 
@@ -504,21 +521,14 @@ Cell[BoxData[
            RowBox[{"{", 
             RowBox[{"i", ",", " ", "Bnew"}], "}"}]}], "]"}], ";", 
          "\[IndentingNewLine]", 
-         RowBox[{"hFinal", " ", "=", " ", 
-          RowBox[{"Min", "[", 
-           RowBox[{
-            RowBox[{"simpleSimplex", "[", 
-             RowBox[{"Anew", ",", " ", 
-              RowBox[{"result", "[", 
-               RowBox[{"[", "3", "]"}], "]"}], ",", " ", "CVnew", ",", " ", 
-              "Bnew", ",", " ", "hnew"}], "]"}], "[", 
-            RowBox[{"[", "1", "]"}], "]"}], "]"}]}], ";", 
-         "\[IndentingNewLine]", 
-         RowBox[{
-         "Print", "[", "\"\<Minim\[AAcute]ln\[IAcute] hodnota CTX je\>\"", 
-          "]"}], ";", "\[IndentingNewLine]", 
-         RowBox[{"Print", "[", "hFinal", "]"}], ";"}], ",", 
-        "\[IndentingNewLine]", 
+         RowBox[{"final", " ", "=", " ", 
+          RowBox[{"simpleSimplex", "[", 
+           RowBox[{"Anew", ",", " ", 
+            RowBox[{"result", "[", 
+             RowBox[{"[", "3", "]"}], "]"}], ",", " ", "CVnew", ",", " ", 
+            "Bnew", ",", " ", "hnew"}], "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"Return", "[", "final", "]"}], ";"}], "\[IndentingNewLine]", 
+        ",", "\[IndentingNewLine]", 
         RowBox[{
          RowBox[{
          "Print", "[", "\"\<\[CapitalUAcute]loha je neomezen\[AAcute].\>\"", 
@@ -571,18 +581,22 @@ Cell[BoxData[
    3.690102192851799*^9}, {3.690102335913432*^9, 3.6901024085029583`*^9}, {
    3.690102440134775*^9, 3.6901024664853086`*^9}, {3.69010251319277*^9, 
    3.690102521671382*^9}, {3.690102623672325*^9, 3.69010263103124*^9}, {
-   3.690103258884248*^9, 3.690103259185335*^9}}],
+   3.690103258884248*^9, 3.690103259185335*^9}, 3.690103576186451*^9, {
+   3.690103632294634*^9, 3.6901036451969023`*^9}, {3.6901036827447643`*^9, 
+   3.690103796570784*^9}, {3.6901038292541437`*^9, 3.690103836521261*^9}}],
 
 Cell[BoxData[
  RowBox[{
   RowBox[{
-   RowBox[{"matrixGame", "[", "A_", "]"}], " ", ":=", " ", 
+   RowBox[{"simpleMatrixGame", "[", 
+    RowBox[{"A_", ",", " ", "side_"}], "]"}], " ", ":=", " ", 
    RowBox[{"Module", "[", 
     RowBox[{
      RowBox[{"{", 
       RowBox[{
       "alpha", ",", " ", "Ematrix", ",", " ", "evec", ",", " ", "ABarT", ",", 
-       " ", "AStar", ",", " ", "cstar"}], "}"}], ",", "\[IndentingNewLine]", 
+       " ", "AStar", ",", " ", "cstar", ",", " ", "ret", ",", " ", 
+       "strategy"}], "}"}], ",", "\[IndentingNewLine]", 
      RowBox[{
       RowBox[{"alpha", " ", "=", " ", 
        RowBox[{
@@ -628,9 +642,23 @@ Cell[BoxData[
             RowBox[{"Dimensions", "[", "A", "]"}], "[", 
             RowBox[{"[", "1", "]"}], "]"}]}], "]"}]}], "]"}]}], ";", 
       "\[IndentingNewLine]", 
-      RowBox[{"simplex", "[", 
-       RowBox[{"AStar", ",", " ", "evec", ",", " ", "cstar"}], "]"}], ";"}]}],
-     "\[IndentingNewLine]", "]"}]}], ";"}]], "Input",
+      RowBox[{"ret", " ", "=", " ", 
+       RowBox[{
+        RowBox[{"simplex", "[", 
+         RowBox[{"AStar", ",", " ", "evec", ",", " ", "cstar"}], "]"}], "[", 
+        RowBox[{"[", "5", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"strategy", " ", "=", " ", 
+       RowBox[{"ret", " ", "/", " ", 
+        RowBox[{"Norm", "[", 
+         RowBox[{"ret", ",", " ", "1"}], "]"}]}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Print", "[", 
+       RowBox[{
+       "\"\<Optim\[AAcute]ln\[IAcute] strategie pro hr\[AAcute]\[CHacek]e \
+\>\"", ",", " ", "side", ",", " ", 
+        RowBox[{"\"\<: \>\"", 
+         RowBox[{"MatrixForm", "[", "strategy", "]"}]}]}], "]"}], ";"}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}]], "Input",
  CellChangeTimes->{{3.690030819416054*^9, 3.6900308320066*^9}, {
    3.690096713031433*^9, 3.690096814967347*^9}, {3.690096867334187*^9, 
    3.690097104647162*^9}, {3.6900976962178583`*^9, 3.69009776307376*^9}, {
@@ -642,42 +670,124 @@ Cell[BoxData[
    3.690099019320673*^9, 3.690099027973782*^9}, {3.690099064529698*^9, 
    3.690099075044949*^9}, {3.6901004040742903`*^9, 3.690100405350259*^9}, {
    3.690100580238418*^9, 3.690100580820569*^9}, {3.6901008463121653`*^9, 
-   3.6901008473568583`*^9}}],
+   3.6901008473568583`*^9}, {3.69010377783733*^9, 3.690103819357382*^9}, {
+   3.690103876101413*^9, 3.690103877955879*^9}, {3.690104071328231*^9, 
+   3.690104076169896*^9}, {3.690104170435369*^9, 3.690104257539205*^9}, {
+   3.69010429449958*^9, 3.690104342092833*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"matrixGame", "[", "A_", "]"}], " ", ":=", " ", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"simpleMatrixGame", "[", 
+       RowBox[{"A", ",", " ", "\"\<x\>\""}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"simpleMatrixGame", "[", 
+       RowBox[{
+        RowBox[{"Transpose", "[", "A", "]"}], ",", " ", "\"\<y\>\""}], "]"}], 
+      ";"}]}], "\[IndentingNewLine]", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.690097034387855*^9, 3.690097041868979*^9}, {
+   3.690098208366725*^9, 3.6900982128536882`*^9}, {3.690098308691828*^9, 
+   3.690098311788394*^9}, {3.690100068003908*^9, 3.690100069922201*^9}, 
+   3.690103784492734*^9, 3.690103822445202*^9, {3.690104324225213*^9, 
+   3.690104438166606*^9}}],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
   RowBox[{"matrixGame", "[", "A", "]"}], ";"}]], "Input",
- CellChangeTimes->{{3.690097034387855*^9, 3.690097041868979*^9}, {
-  3.690098208366725*^9, 3.6900982128536882`*^9}, {3.690098308691828*^9, 
-  3.690098311788394*^9}, {3.690100068003908*^9, 3.690100069922201*^9}}],
+ CellChangeTimes->{{3.690104429626212*^9, 3.690104445481427*^9}}],
 
 Cell[CellGroupData[{
 
-Cell[BoxData["\<\"Minim\[AAcute]ln\[IAcute] hodnota CTX je\"\>"], "Print",
- CellChangeTimes->{
-  3.6901000709670677`*^9, {3.690100112583313*^9, 3.6901001423161983`*^9}, 
-   3.690100281763546*^9, 3.6901003318230753`*^9, 3.6901004093756104`*^9, 
-   3.690100584998599*^9, 3.69010077199524*^9, {3.6901008128591337`*^9, 
-   3.690100850326324*^9}, 3.690100909185004*^9, {3.690101714072741*^9, 
-   3.6901017375482073`*^9}, 3.690102196402335*^9, {3.690102350742406*^9, 
-   3.690102412421835*^9}, {3.690102447613008*^9, 3.690102493895012*^9}, 
-   3.690102525783196*^9, 3.690102596146078*^9, 3.690102633942116*^9, {
-   3.6901032457108192`*^9, 3.690103301972872*^9}}],
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Optim\[AAcute]ln\[IAcute] strategie pro hr\[AAcute]\[CHacek]e \
+\"\>", "\[InvisibleSpace]", "\<\"x\"\>", "\[InvisibleSpace]", 
+   RowBox[{"\<\": \"\>", " ", 
+    TagBox[
+     RowBox[{"(", "\[NoBreak]", GridBox[{
+        {
+         FractionBox["1", "2"]},
+        {
+         FractionBox["15", "148"]},
+        {
+         FractionBox["31", "148"]},
+        {
+         FractionBox["2", "37"]},
+        {
+         FractionBox["5", "37"]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+         "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.7]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+     Function[BoxForm`e$, 
+      MatrixForm[BoxForm`e$]]]}]}],
+  SequenceForm[
+  "Optim\[AAcute]ln\[IAcute] strategie pro hr\[AAcute]\[CHacek]e ", "x", ": " 
+   MatrixForm[{{
+       Rational[1, 2]}, {
+       Rational[15, 148]}, {
+       Rational[31, 148]}, {
+       Rational[2, 37]}, {
+       Rational[5, 37]}}]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.690104445890806*^9}],
 
 Cell[BoxData[
- RowBox[{"-", 
-  FractionBox["37", "3792"]}]], "Print",
- CellChangeTimes->{
-  3.6901000709670677`*^9, {3.690100112583313*^9, 3.6901001423161983`*^9}, 
-   3.690100281763546*^9, 3.6901003318230753`*^9, 3.6901004093756104`*^9, 
-   3.690100584998599*^9, 3.69010077199524*^9, {3.6901008128591337`*^9, 
-   3.690100850326324*^9}, 3.690100909185004*^9, {3.690101714072741*^9, 
-   3.6901017375482073`*^9}, 3.690102196402335*^9, {3.690102350742406*^9, 
-   3.690102412421835*^9}, {3.690102447613008*^9, 3.690102493895012*^9}, 
-   3.690102525783196*^9, 3.690102596146078*^9, 3.690102633942116*^9, {
-   3.6901032457108192`*^9, 3.690103301974256*^9}}]
+ InterpretationBox[
+  RowBox[{"\<\"Optim\[AAcute]ln\[IAcute] strategie pro hr\[AAcute]\[CHacek]e \
+\"\>", "\[InvisibleSpace]", "\<\"y\"\>", "\[InvisibleSpace]", 
+   RowBox[{"\<\": \"\>", " ", 
+    TagBox[
+     RowBox[{"(", "\[NoBreak]", GridBox[{
+        {
+         RowBox[{"-", 
+          FractionBox["35695", "1943086"]}]},
+        {
+         RowBox[{"-", 
+          FractionBox["144493", "1943086"]}]},
+        {
+         FractionBox["290699", "1943086"]},
+        {
+         FractionBox["390145", "971543"]},
+        {
+         FractionBox["30083", "84482"]}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+         "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.7]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+     Function[BoxForm`e$, 
+      MatrixForm[BoxForm`e$]]]}]}],
+  SequenceForm[
+  "Optim\[AAcute]ln\[IAcute] strategie pro hr\[AAcute]\[CHacek]e ", "y", ": " 
+   MatrixForm[{{
+       Rational[-35695, 1943086]}, {
+       Rational[-144493, 1943086]}, {
+       Rational[290699, 1943086]}, {
+       Rational[390145, 971543]}, {
+       Rational[30083, 84482]}}]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.690104445919175*^9}]
 }, Open  ]]
 }, Open  ]]
 },
@@ -702,14 +812,15 @@ Cell[579, 22, 866, 23, 102, "Input"],
 Cell[1448, 47, 1065, 28, 34, "Output"]
 }, Open  ]],
 Cell[2528, 78, 2496, 34, 32, "Input"],
-Cell[5027, 114, 15414, 275, 1516, "Input"],
-Cell[20444, 391, 9170, 182, 608, "Input"],
-Cell[29617, 575, 3049, 69, 218, "Input"],
+Cell[5027, 114, 16218, 292, 1598, "Input"],
+Cell[21248, 408, 9097, 177, 608, "Input"],
+Cell[30348, 587, 3962, 88, 264, "Input"],
+Cell[34313, 677, 841, 19, 103, "Input"],
 Cell[CellGroupData[{
-Cell[32691, 648, 293, 5, 34, "Input"],
+Cell[35179, 700, 147, 3, 34, "Input"],
 Cell[CellGroupData[{
-Cell[33009, 657, 656, 9, 24, "Print"],
-Cell[33668, 668, 651, 11, 38, "Print"]
+Cell[35351, 707, 1328, 39, 130, "Print"],
+Cell[36682, 748, 1466, 41, 130, "Print"]
 }, Open  ]]
 }, Open  ]]
 }
