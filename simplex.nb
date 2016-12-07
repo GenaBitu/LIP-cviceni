@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     33853,        720]
-NotebookOptionsPosition[     33006,        686]
-NotebookOutlinePosition[     33346,        701]
-CellTagsIndexPosition[     33303,        698]
+NotebookDataLength[     34318,        730]
+NotebookOptionsPosition[     33471,        696]
+NotebookOutlinePosition[     33811,        711]
+CellTagsIndexPosition[     33768,        708]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -389,8 +389,16 @@ Cell[BoxData[
          RowBox[{"CTemp", " ", "=", " ", "CBar"}], ";", "\[IndentingNewLine]", 
          RowBox[{"hTemp", " ", "=", " ", "hBar"}], ";"}]}], 
        "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
-      RowBox[{"hOut", " ", "=", " ", 
-       RowBox[{"-", "hBar"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"ValueQ", "[", "hBar", "]"}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"hOut", " ", "=", " ", 
+          RowBox[{"-", "hBar"}]}], ";"}], "\[IndentingNewLine]", ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"hOut", " ", "=", " ", "h"}], ";"}]}], "\[IndentingNewLine]",
+        "]"}], ";", "\[IndentingNewLine]", 
       RowBox[{"BOut", " ", "=", " ", "BTemp"}], ";", "\[IndentingNewLine]", 
       RowBox[{"bOut", " ", "=", " ", "bTemp"}], ";", "\[IndentingNewLine]", 
       RowBox[{"AOut", " ", "=", " ", "ATemp"}], ";", "\[IndentingNewLine]", 
@@ -484,7 +492,7 @@ Cell[BoxData[
    3.690030491772238*^9, 3.690030495270504*^9}, {3.690102863807152*^9, 
    3.690102864117795*^9}, {3.690103069217224*^9, 3.6901030716575203`*^9}, {
    3.690103104177371*^9, 3.690103105015292*^9}, {3.690103135528017*^9, 
-   3.6901031357880983`*^9}}],
+   3.6901031357880983`*^9}, {3.6901031728856907`*^9, 3.690103225054223*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -674,13 +682,15 @@ Cell[CellGroupData[{
 
 Cell[BoxData["\<\"Minim\[AAcute]ln\[IAcute] hodnota CTX je\"\>"], "Print",
  CellChangeTimes->{{3.690030833517652*^9, 3.690030853918212*^9}, {
-  3.6901028045376997`*^9, 3.6901028207484503`*^9}}],
+  3.6901028045376997`*^9, 3.6901028207484503`*^9}, {3.690103183051289*^9, 
+  3.690103228425786*^9}}],
 
 Cell[BoxData[
  RowBox[{"-", 
   FractionBox["502", "21"]}]], "Print",
  CellChangeTimes->{{3.690030833517652*^9, 3.690030853918212*^9}, {
-  3.6901028045376997`*^9, 3.6901028207544537`*^9}}]
+  3.6901028045376997`*^9, 3.6901028207484503`*^9}, {3.690103183051289*^9, 
+  3.690103228427581*^9}}]
 }, Open  ]]
 }, Open  ]]
 },
@@ -713,13 +723,13 @@ Cell[4436, 122, 959, 30, 192, "Input"],
 Cell[5398, 154, 1276, 33, 34, "Output"]
 }, Open  ]],
 Cell[6689, 190, 2496, 34, 32, "Input"],
-Cell[9188, 226, 14572, 260, 1391, "Input"],
-Cell[23763, 488, 8595, 174, 608, "Input"],
+Cell[9188, 226, 14939, 268, 1483, "Input"],
+Cell[24130, 496, 8595, 174, 608, "Input"],
 Cell[CellGroupData[{
-Cell[32383, 666, 187, 4, 34, "Input"],
+Cell[32750, 674, 187, 4, 34, "Input"],
 Cell[CellGroupData[{
-Cell[32595, 674, 193, 2, 24, "Print"],
-Cell[32791, 678, 187, 4, 38, "Print"]
+Cell[32962, 682, 242, 3, 24, "Print"],
+Cell[33207, 687, 236, 5, 38, "Print"]
 }, Open  ]]
 }, Open  ]]
 }
